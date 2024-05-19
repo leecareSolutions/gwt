@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Google Inc.
+ * Copyright 2024 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -312,6 +312,9 @@ public class LongLib {
       // Convert to a positive number that will have the exact same first 44 bits
       value += BigLongLibBase.TWO_PWR_44_DBL;
       a3 = BigLongLib.MASK_2;
+    } else {
+      a3 = (int) (value / BigLongLibBase.TWO_PWR_44_DBL);
+      value -= a3 * BigLongLibBase.TWO_PWR_44_DBL;
     }
     int a1 = (int) (value / BigLongLibBase.TWO_PWR_22_DBL);
     int a0 = (int) (value - a1 * BigLongLibBase.TWO_PWR_22_DBL);
